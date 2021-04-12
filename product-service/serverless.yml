@@ -61,6 +61,12 @@ plugins:
 
 functions:
   getProductsList:
+    environment:
+      PG_HOST: 
+      PG_PORT: 
+      PG_DATABASE: 
+      PG_USERNAME: 
+      PG_PASSWORD: 
     handler: handler.getProductsList
     events:
       - http:
@@ -68,11 +74,30 @@ functions:
           method: get
           cors: true
   getProductsById:
+    environment:
+      PG_HOST: 
+      PG_PORT: 
+      PG_DATABASE: 
+      PG_USERNAME: 
+      PG_PASSWORD: 
     handler: handler.getProductsById
     events:
       - http:
           path: products/{productId}
           method: get
+          cors: true
+  createProduct:
+    environment:
+      PG_HOST: lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com
+      PG_PORT: 5432
+      PG_DATABASE: lesson4
+      PG_USERNAME: postgres
+      PG_PASSWORD: d8HJCCpvS50qHHTqBzr0
+    handler: handler.createProduct
+    events:
+      - http:
+          path: products
+          method: post
           cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
