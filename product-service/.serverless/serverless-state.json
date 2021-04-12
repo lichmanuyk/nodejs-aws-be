@@ -181,13 +181,22 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/product-service/dev/1615709818023-2021-03-14T08:16:58.023Z/product-service.zip"
+                "S3Key": "serverless/product-service/dev/1618245606613-2021-04-12T16:40:06.613Z/product-service.zip"
               },
               "Handler": "handler.getProductsList",
               "Runtime": "nodejs12.x",
               "FunctionName": "product-service-dev-getProductsList",
               "MemorySize": 1024,
               "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "PG_HOST": "lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com",
+                  "PG_PORT": "5432",
+                  "PG_DATABASE": "lesson4",
+                  "PG_USERNAME": "postgres",
+                  "PG_PASSWORD": "d8HJCCpvS50qHHTqBzr0"
+                }
+              },
               "Role": {
                 "Fn::GetAtt": [
                   "IamRoleLambdaExecution",
@@ -206,13 +215,22 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/product-service/dev/1615709818023-2021-03-14T08:16:58.023Z/product-service.zip"
+                "S3Key": "serverless/product-service/dev/1618245606613-2021-04-12T16:40:06.613Z/product-service.zip"
               },
               "Handler": "handler.getProductsById",
               "Runtime": "nodejs12.x",
               "FunctionName": "product-service-dev-getProductsById",
               "MemorySize": 1024,
               "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "PG_HOST": "lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com",
+                  "PG_PORT": "5432",
+                  "PG_DATABASE": "lesson4",
+                  "PG_USERNAME": "postgres",
+                  "PG_PASSWORD": "d8HJCCpvS50qHHTqBzr0"
+                }
+              },
               "Role": {
                 "Fn::GetAtt": [
                   "IamRoleLambdaExecution",
@@ -224,24 +242,24 @@
               "GetProductsByIdLogGroup"
             ]
           },
-          "GetProductsListLambdaVersion5rLbZFTREM2E7SKGdCD73693Oei3NMEKCgJGTzL3N04": {
+          "GetProductsListLambdaVersionjDUHMM7dso38RZQPuavupggiwx7klXZBOFBK050pE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetProductsListLambdaFunction"
               },
-              "CodeSha256": "aDG6p2WfejqlXbOGhgHTc9hwaS/uwZXAzh3tHzmgJvQ="
+              "CodeSha256": "wS3K0bhLIT3Rjyvk0TuFZCiUm5lpJcyfTKv3/E/k3co="
             }
           },
-          "GetProductsByIdLambdaVersionB9NEnOa7oXPTkKBig7Cs5OdlyohJdcpCGr1TG9Qvig": {
+          "GetProductsByIdLambdaVersion5AsfMwdFNkquKAkuXtinA9sW8rXX8mr3xOXJDLZ8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetProductsByIdLambdaFunction"
               },
-              "CodeSha256": "aDG6p2WfejqlXbOGhgHTc9hwaS/uwZXAzh3tHzmgJvQ="
+              "CodeSha256": "wS3K0bhLIT3Rjyvk0TuFZCiUm5lpJcyfTKv3/E/k3co="
             }
           },
           "ApiGatewayRestApi": {
@@ -459,7 +477,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1615709808487": {
+          "ApiGatewayDeployment1618245601643": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -558,13 +576,13 @@
           "GetProductsListLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetProductsListLambdaVersion5rLbZFTREM2E7SKGdCD73693Oei3NMEKCgJGTzL3N04"
+              "Ref": "GetProductsListLambdaVersionjDUHMM7dso38RZQPuavupggiwx7klXZBOFBK050pE"
             }
           },
           "GetProductsByIdLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetProductsByIdLambdaVersionB9NEnOa7oXPTkKBig7Cs5OdlyohJdcpCGr1TG9Qvig"
+              "Ref": "GetProductsByIdLambdaVersion5AsfMwdFNkquKAkuXtinA9sW8rXX8mr3xOXJDLZ8"
             }
           },
           "ServiceEndpoint": {
@@ -682,6 +700,13 @@
     "pluginsData": {},
     "functions": {
       "getProductsList": {
+        "environment": {
+          "PG_HOST": "lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com",
+          "PG_PORT": "5432",
+          "PG_DATABASE": "lesson4",
+          "PG_USERNAME": "postgres",
+          "PG_PASSWORD": "d8HJCCpvS50qHHTqBzr0"
+        },
         "handler": "handler.getProductsList",
         "events": [
           {
@@ -719,9 +744,16 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetProductsListLambdaVersion5rLbZFTREM2E7SKGdCD73693Oei3NMEKCgJGTzL3N04"
+        "versionLogicalId": "GetProductsListLambdaVersionjDUHMM7dso38RZQPuavupggiwx7klXZBOFBK050pE"
       },
       "getProductsById": {
+        "environment": {
+          "PG_HOST": "lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com",
+          "PG_PORT": "5432",
+          "PG_DATABASE": "lesson4",
+          "PG_USERNAME": "postgres",
+          "PG_PASSWORD": "d8HJCCpvS50qHHTqBzr0"
+        },
         "handler": "handler.getProductsById",
         "events": [
           {
@@ -759,7 +791,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetProductsByIdLambdaVersionB9NEnOa7oXPTkKBig7Cs5OdlyohJdcpCGr1TG9Qvig"
+        "versionLogicalId": "GetProductsByIdLambdaVersion5AsfMwdFNkquKAkuXtinA9sW8rXX8mr3xOXJDLZ8"
       }
     },
     "configValidationMode": "warn",
@@ -783,7 +815,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/product-service/dev/1615709818023-2021-03-14T08:16:58.023Z",
+    "artifactDirectoryName": "serverless/product-service/dev/1618245606613-2021-04-12T16:40:06.613Z",
     "artifact": ""
   }
 }
