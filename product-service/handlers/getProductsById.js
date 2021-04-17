@@ -14,35 +14,47 @@ const dbOptions = {
 };
 
 export const getProductsById = async (event) => {
+  console.log(event);
   const client = new Client(dbOptions);
   await client.connect();
 
   try {
-    const productId = event.pathParameters.productId;
-    const { rows: products } = await client.query(`select * from products left join stocks on products.id = stocks.product_id and products.id = '${productId}'`);
+    try {
+      const productId = event.pathParameters.productId;
+      const { rows: products } = await client.query(`select * from products left join stocks on products.id = stocks.product_id and products.id = '${productId}'`);
 
-    if (!products) {
-      throw Error;
+      if (!products) {
+        throw Error;
+      }
+
+      return {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+        body: JSON.stringify(products[0])
+      };
+    } catch (err) {
+      return {
+        statusCode: 404,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+        body: JSON.stringify('Product not found', err)
+      };
+    } finally {
+      client.end();
     }
-  
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-      },
-      body: JSON.stringify(products[0])
-    };
   } catch (err) {
+    console.log('Error during database request executing:', err);
     return {
-      statusCode: 404,
+      statusCode: 500,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': true,
       },
-      body: JSON.stringify('Product not found', err)
     };
-  } finally {
-    client.end();
   }
 };

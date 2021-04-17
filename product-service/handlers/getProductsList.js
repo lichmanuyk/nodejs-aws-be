@@ -14,6 +14,7 @@ const dbOptions = {
 };
 
 export const getProductsList = async (event) => {
+  console.log(event);
   const client = new Client(dbOptions);
   await client.connect();
 
@@ -26,7 +27,7 @@ export const getProductsList = async (event) => {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': true,
       },
-      body: products
+      body: JSON.stringify(products)
     };
   } catch (err) {
     console.log('Error during database request executing:', err);

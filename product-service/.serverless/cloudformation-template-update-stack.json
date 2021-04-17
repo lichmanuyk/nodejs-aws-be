@@ -173,7 +173,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/product-service/dev/1618249137933-2021-04-12T17:38:57.933Z/product-service.zip"
+          "S3Key": "serverless/product-service/dev/1618665774311-2021-04-17T13:22:54.311Z/product-service.zip"
         },
         "Handler": "handler.getProductsList",
         "Runtime": "nodejs12.x",
@@ -207,7 +207,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/product-service/dev/1618249137933-2021-04-12T17:38:57.933Z/product-service.zip"
+          "S3Key": "serverless/product-service/dev/1618665774311-2021-04-17T13:22:54.311Z/product-service.zip"
         },
         "Handler": "handler.getProductsById",
         "Runtime": "nodejs12.x",
@@ -241,7 +241,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/product-service/dev/1618249137933-2021-04-12T17:38:57.933Z/product-service.zip"
+          "S3Key": "serverless/product-service/dev/1618665774311-2021-04-17T13:22:54.311Z/product-service.zip"
         },
         "Handler": "handler.createProduct",
         "Runtime": "nodejs12.x",
@@ -268,34 +268,34 @@
         "CreateProductLogGroup"
       ]
     },
-    "GetProductsListLambdaVersionFMo0C7zqfqdlzaoJ0jgAy05zQBIYQuwS7kXNeXXXtY": {
+    "GetProductsListLambdaVersionyop55Wkxlyuhe1810UlKlhVU2XdTDsgxvLAtfEGLOOE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetProductsListLambdaFunction"
         },
-        "CodeSha256": "t/0jhO1Cfv/LFmhuNub7qaF2XFQyq9yPuUOjiltJ4mY="
+        "CodeSha256": "GD2TZ6JMtotzPhd7z9sYuihfgbmebhdLBG10c94Vw20="
       }
     },
-    "GetProductsByIdLambdaVersionbCf2crj3G2xbxZbQGygsId30bjTUto3FvD0PIHeMew": {
+    "GetProductsByIdLambdaVersionVaC6YKSylp2l4p5SQNo2hO6BoEx9hFAnOTZ0UqQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetProductsByIdLambdaFunction"
         },
-        "CodeSha256": "t/0jhO1Cfv/LFmhuNub7qaF2XFQyq9yPuUOjiltJ4mY="
+        "CodeSha256": "GD2TZ6JMtotzPhd7z9sYuihfgbmebhdLBG10c94Vw20="
       }
     },
-    "CreateProductLambdaVersionrQDS4UDgqM259kUS7FOXqjDU4U8WZj6tNXQxACgkcg": {
+    "CreateProductLambdaVersionVQ1081ILk80SSMovPZge9Pe44bYlmHnZ4EK711DFxNQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateProductLambdaFunction"
         },
-        "CodeSha256": "t/0jhO1Cfv/LFmhuNub7qaF2XFQyq9yPuUOjiltJ4mY="
+        "CodeSha256": "GD2TZ6JMtotzPhd7z9sYuihfgbmebhdLBG10c94Vw20="
       }
     },
     "ApiGatewayRestApi": {
@@ -556,7 +556,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1618249133173": {
+    "ApiGatewayDeployment1618665769391": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -693,19 +693,19 @@
     "GetProductsListLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetProductsListLambdaVersionFMo0C7zqfqdlzaoJ0jgAy05zQBIYQuwS7kXNeXXXtY"
+        "Ref": "GetProductsListLambdaVersionyop55Wkxlyuhe1810UlKlhVU2XdTDsgxvLAtfEGLOOE"
       }
     },
     "GetProductsByIdLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetProductsByIdLambdaVersionbCf2crj3G2xbxZbQGygsId30bjTUto3FvD0PIHeMew"
+        "Ref": "GetProductsByIdLambdaVersionVaC6YKSylp2l4p5SQNo2hO6BoEx9hFAnOTZ0UqQ"
       }
     },
     "CreateProductLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateProductLambdaVersionrQDS4UDgqM259kUS7FOXqjDU4U8WZj6tNXQxACgkcg"
+        "Ref": "CreateProductLambdaVersionVQ1081ILk80SSMovPZge9Pe44bYlmHnZ4EK711DFxNQ"
       }
     },
     "ServiceEndpoint": {
