@@ -13,17 +13,20 @@ const dbOptions = {
   connectionTimeoutMillis: 5000,
 };
 
-export const getProductsById = async (event) => {
+export const createProduct = async (event) => {
   console.log(event);
   const client = new Client(dbOptions);
   await client.connect();
 
   try {
     try {
-      const productId = event.pathParameters.productId;
-      const { rows: products } = await client.query(`select * from products left join stocks on products.id = stocks.product_id and products.id = '${productId}'`);
+      const body = JSON.parse(event.body);
+      console.log(body)
+      const { title, description, price, image } = body;
 
-      if (!products) {
+      const { rows: product } = await client.query(`insert into products (title, description, price, image) values ('${title}', '${description}', ${price}, '${image}') returning *`);
+
+      if (!product) {
         throw Error;
       }
 
@@ -33,7 +36,7 @@ export const getProductsById = async (event) => {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true,
         },
-        body: JSON.stringify(products[0])
+        body: JSON.stringify(product)
       };
     } catch (err) {
       return {
