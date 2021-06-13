@@ -26,6 +26,13 @@
                 "s3:*"
               ],
               "Resource": "arn:aws:s3:::import-service-csv-bucket/*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "sqs:*"
+              ],
+              "Resource": "arn:aws:sqs:eu-west-1:072657732908:catalogItemsQueue"
             }
           ]
         }
@@ -179,6 +186,9 @@
                       },
                       {
                         "$ref": "$[\"service\"][\"provider\"][\"iam\"][\"role\"][\"statements\"][1]"
+                      },
+                      {
+                        "$ref": "$[\"service\"][\"provider\"][\"iam\"][\"role\"][\"statements\"][2]"
                       }
                     ]
                   }
@@ -207,7 +217,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/import-service/dev/1623498454678-2021-06-12T11:47:34.678Z/import-service.zip"
+                "S3Key": "serverless/import-service/dev/1623578626407-2021-06-13T10:03:46.407Z/import-service.zip"
               },
               "Handler": "handler.importProductsFile",
               "Runtime": "nodejs12.x",
@@ -232,7 +242,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/import-service/dev/1623498454678-2021-06-12T11:47:34.678Z/import-service.zip"
+                "S3Key": "serverless/import-service/dev/1623578626407-2021-06-13T10:03:46.407Z/import-service.zip"
               },
               "Handler": "handler.importFileParser",
               "Runtime": "nodejs12.x",
@@ -250,24 +260,24 @@
               "ImportFileParserLogGroup"
             ]
           },
-          "ImportProductsFileLambdaVersionKKzAAvM2TCx9Qw0LibjhZVPAPzSaMofu3gzNiYptUk": {
+          "ImportProductsFileLambdaVersiond02rWHZyHUZCXJ7t7wYgZE4VKbGS7iZE9kyU2NxPXc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ImportProductsFileLambdaFunction"
               },
-              "CodeSha256": "IVXWQ40fhU6R61lAtCZ252/hyaiHcYEW1PPV0uNs6ys="
+              "CodeSha256": "vhoK/T+lgEXTymnkAVh8eY7ovFWAcojJMiu4M7nWNQw="
             }
           },
-          "ImportFileParserLambdaVersionx8kW8Hj8y0ztiXGqgILAVUMRmVxq8OBDfrEhM4Y0": {
+          "ImportFileParserLambdaVersionYu1ANNXDFPFXwRc65TzrPlBr9sqb6h363SRfBueX4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ImportFileParserLambdaFunction"
               },
-              "CodeSha256": "IVXWQ40fhU6R61lAtCZ252/hyaiHcYEW1PPV0uNs6ys="
+              "CodeSha256": "vhoK/T+lgEXTymnkAVh8eY7ovFWAcojJMiu4M7nWNQw="
             }
           },
           "ImportFileParserCustomS31": {
@@ -394,7 +404,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/import-service/dev/1623498454678-2021-06-12T11:47:34.678Z/custom-resources.zip"
+                "S3Key": "serverless/import-service/dev/1623578626407-2021-06-13T10:03:46.407Z/custom-resources.zip"
               },
               "FunctionName": "import-service-dev-custom-resource-existing-s3",
               "Handler": "s3/handler.handler",
@@ -529,7 +539,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1623498441430": {
+          "ApiGatewayDeployment1623578612302": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -589,13 +599,13 @@
           "ImportProductsFileLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ImportProductsFileLambdaVersionKKzAAvM2TCx9Qw0LibjhZVPAPzSaMofu3gzNiYptUk"
+              "Ref": "ImportProductsFileLambdaVersiond02rWHZyHUZCXJ7t7wYgZE4VKbGS7iZE9kyU2NxPXc"
             }
           },
           "ImportFileParserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ImportFileParserLambdaVersionx8kW8Hj8y0ztiXGqgILAVUMRmVxq8OBDfrEhM4Y0"
+              "Ref": "ImportFileParserLambdaVersionYu1ANNXDFPFXwRc65TzrPlBr9sqb6h363SRfBueX4"
             }
           },
           "ServiceEndpoint": {
@@ -755,7 +765,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "ImportProductsFileLambdaVersionKKzAAvM2TCx9Qw0LibjhZVPAPzSaMofu3gzNiYptUk"
+        "versionLogicalId": "ImportProductsFileLambdaVersiond02rWHZyHUZCXJ7t7wYgZE4VKbGS7iZE9kyU2NxPXc"
       },
       "importFileParser": {
         "handler": "handler.importFileParser",
@@ -781,7 +791,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "ImportFileParserLambdaVersionx8kW8Hj8y0ztiXGqgILAVUMRmVxq8OBDfrEhM4Y0"
+        "versionLogicalId": "ImportFileParserLambdaVersionYu1ANNXDFPFXwRc65TzrPlBr9sqb6h363SRfBueX4"
       }
     },
     "configValidationMode": "warn",
@@ -805,7 +815,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/import-service/dev/1623498454678-2021-06-12T11:47:34.678Z",
+    "artifactDirectoryName": "serverless/import-service/dev/1623578626407-2021-06-13T10:03:46.407Z",
     "artifact": ""
   }
 }
