@@ -48,6 +48,10 @@ provider:
           Action: "s3:*"
           Resource:
             - "arn:aws:s3:::import-service-csv-bucket/*"
+        - Effect: "Allow"
+          Action: "sqs:*"
+          Resource:
+            - "arn:aws:sqs:eu-west-1:072657732908:catalogItemsQueue"
 
 
 plugins:
