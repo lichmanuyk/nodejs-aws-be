@@ -13,6 +13,7 @@
     "webpack": "^5.25.0"
   },
   "dependencies": {
+    "aws-sdk": "^2.927.0",
     "pg": "^8.5.1"
   }
 }
