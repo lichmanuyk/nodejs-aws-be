@@ -42,12 +42,6 @@ plugins:
 
 functions:
   getProductsList:
-    environment:
-      PG_HOST: lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com
-      PG_PORT: 5432
-      PG_DATABASE: lesson4
-      PG_USERNAME: postgres
-      PG_PASSWORD: d8HJCCpvS50qHHTqBzr0
     handler: handler.getProductsList
     events:
       - http:
@@ -55,12 +49,6 @@ functions:
           method: get
           cors: true
   catalogBatchProcess:
-    environment:
-      PG_HOST: lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com
-      PG_PORT: 5432
-      PG_DATABASE: lesson4
-      PG_USERNAME: postgres
-      PG_PASSWORD: d8HJCCpvS50qHHTqBzr0
     handler: handler.catalogBatchProcess
     events:
       - sqs:
@@ -68,12 +56,6 @@ functions:
           arn:
             !GetAtt SQSQueue.Arn
   getProductsById:
-    environment:
-      PG_HOST: lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com
-      PG_PORT: 5432
-      PG_DATABASE: lesson4
-      PG_USERNAME: postgres
-      PG_PASSWORD: d8HJCCpvS50qHHTqBzr0
     handler: handler.getProductsById
     events:
       - http:
@@ -81,12 +63,6 @@ functions:
           method: get
           cors: true
   createProduct:
-    environment:
-      PG_HOST: lesson4-instance.chy5ntpppatx.eu-west-1.rds.amazonaws.com
-      PG_PORT: 5432
-      PG_DATABASE: lesson4
-      PG_USERNAME: postgres
-      PG_PASSWORD: d8HJCCpvS50qHHTqBzr0
     handler: handler.createProduct
     events:
       - http:
